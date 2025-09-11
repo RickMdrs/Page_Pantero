@@ -1,0 +1,87 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: url('fundo.png') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+  }
+  
+  /* Banner topo */
+  .top-banner {
+    background: red;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  /* Container central */
+  .container {
+    margin-top: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px 20px;
+    border-radius: 15px;
+    display: inline-block;
+  }
+  
+  .container h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .sub {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .highlight {
+    font-weight: bold;
+    color: #FFD700;
+  }
+  
+  .profile {
+    width: 200px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 3px solid #fff;
+  }
+  
+  /* Botão CTA */
+  #cta {
+    background: limegreen;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(0,255,0,0.6);
+  }
+  
+  #cta:hover {
+    background: #00cc44;
+    transform: scale(1.05);
+  }
+  
+  /* Texto de membros */
+  .members {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Rodapé */
+  footer {
+    margin-top: 40px;
+    padding: 15px;
+    font-size: 14px;
+    background: black;
+  }
+  
