@@ -4,5 +4,6 @@ document.getElementById("cta").addEventListener("click", () => {
   fbq('trackCustom', 'EntrouGrupoWhatsApp');
 
   // Redireciona para o grupo
-  window.location.href = "https://chat.whatsapp.com/JgD1ribpZ28AlNbZQdbR1";
+  window.location.href = "https://chat.whatsapp.com/JgDIribpZ28AINnBzQdbRl";
 });
+
