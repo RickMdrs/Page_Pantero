@@ -1,6 +1,8 @@
 // Botão de ação
 document.getElementById("cta").addEventListener("click", () => {
-    // Aqui você pode trocar o link para seu grupo ou página
-    window.location.href = "https://chat.whatsapp.com/JgDIribpZ28AINnBzQdbRl";
-  });
-  
+  // Dispara evento do Pixel
+  fbq('trackCustom', 'EntrouGrupoWhatsApp');
+
+  // Redireciona para o grupo
+  window.location.href = "https://chat.whatsapp.com/JgD1ribpZ28AlNbZQdbR1";
+});
