@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantero Ofertas</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- GERAL --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* FUNDO COM IMAGEM + PELÍCULA ESCURA PARA LEITURA */
+            /* O gradiente preto (rgba) fica por cima da imagem 'fundo.jpg' */
+            background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.9) 100%), url('fundo.png');
+            
+            /* Configurações para a imagem cobrir a tela e ficar fixa */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efeito Parallax: O fundo não mexe ao rolar */
+            
+            min-height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px; 
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* --- LOGO --- */
+        .logo-area {
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3); /* Borda um pouco mais transparente para combinar com o fundo */
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5); /* Sombra mais forte para destacar do fundo */
+        }
+
+        .logo-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Sombra no texto para ler bem */
+        }
+
+        /* --- AVISO --- */
+        .aviso-box {
+            /* Fundo vermelho translúcido para mesclar com a imagem */
+            background-color: rgba(153, 0, 0, 0.85); 
+            border: 1px solid #ff4d4d;
+            border-radius: 18px;
+            padding: 15px 20px;
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 35px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px); /* Efeito de vidro fosco (blur) atrás do aviso */
+        }
+
+        /* --- BOTÕES --- */
+        .btn {
+            background-color: white;
+            color: #333;
+            width: 100%;
+            height: 64px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            margin-bottom: 18px;
+            position: relative;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.3); /* Sombra mais escura */
+            
+            /* Animação Suave */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            letter-spacing: 0.3px; 
+        }
+
+        /* Efeito PULO ao passar o mouse */
+        .btn:hover {
+            transform: translateY(-4px); 
+            box-shadow: 0 15px 25px rgba(0,0,0,0.4); 
+            background-color: #fff; /* Garante o branco brilhante */
+        }
+
+        .btn:active {
+            transform: scale(0.98) translateY(0);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .btn i {
+            position: absolute;
+            left: 25px;
+            font-size: 28px;
+        }
+
+        .fa-instagram { color: #E1306C; }
+        .fa-whatsapp { color: #25D366; }
+
+        /* --- MARCAS --- */
+        .marcas-title {
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            text-shadow: 0 1px 4px rgba(0,0,0,1); /* Sombra forte para ler em cima da imagem */
+        }
+
+        .marcas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .marca-icon {
+            width: 52px;
+            height: 52px;
+            background-color: white;
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            overflow: hidden;
+            
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .marca-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ícone preenchendo tudo */
+        }
+
+        .marca-icon:hover {
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            font-size: 12px;
+            opacity: 0.8;
+            text-shadow: 0 1px 2px black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="logo-area">
+            <img src="logo.png" alt="Logo Pantero">
+        </div>
+
+        <h1>Pantero Ofertas</h1>
+
+        <div class="aviso-box">
+            <strong>Nota:</strong> Novas mensagens no WhatsApp só aparecem depois que você entrar no Grupo.
+        </div>
+
+        <a href="https://www.instagram.com/rmstore.slz" class="btn" target="_blank">
+            <i class="fab fa-instagram"></i>
+            Siga nosso Instagram
+        </a>
+
+        <a href="https://chat.whatsapp.com/HHSFzmdlGv78VoyExPPE1a" class="btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Entrar no Grupo VIP
+        </a>
+
+        <div class="marcas-title">Ofertas 100% originais de lojas confiáveis</div>
+        
+        <div class="marcas-grid">
+            <div class="marca-icon"><img src="amazon.png" alt="Amazon"></div>
+            <div class="marca-icon"><img src="shopee.png" alt="Shopee"></div>
+            <div class="marca-icon"><img src="nike.png" alt="Nike"></div>
+            <div class="marca-icon"><img src="magalu.png" alt="Magalu"></div>
+            <div class="marca-icon"><img src="mercadolivre.png" alt="Mercado Livre"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        Pantero Ofertas 2025 🐱 | Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>
